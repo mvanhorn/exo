@@ -18,8 +18,9 @@ class ClaudeToolDefinition(BaseModel, frozen=True):
     input_schema: ClaudeToolInputSchema
 
 
-# Type aliases
-ClaudeRole = Literal["user", "assistant"]
+# Type aliases. Request messages accept inline system turns; response roles
+# stay assistant-only via their own literals.
+ClaudeRole = Literal["user", "assistant", "system"]
 ClaudeStopReason = Literal["end_turn", "max_tokens", "stop_sequence", "tool_use"]
 
 
